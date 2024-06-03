@@ -1,0 +1,41 @@
+[package]
+name = "collaborative-drawing-persistence-server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# MoQ stuff
+moq-native = { path = "../../moq-rs/moq-native", version = "0.1" }
+moq-transport = { path = "../../moq-rs/moq-transport", version = "0.5" }
+
+# QUIC
+web-transport = "0.1"
+bytes = "1"
+url = "2"
+
+# Async stuff
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+
+# Error handling
+anyhow = { version = "1", features = ["backtrace"] }
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# Logging
+log = { version = "0.4", features = ["std"] }
+env_logger = "0.9"
+tracing = "0.1" # so we can disable quinn spam
+tracing-subscriber = "0.3"
+
+# Serialization/deserialization
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+
+# CRDT for state
+yrs = "0.18"
+
+uuid = { version = "1.8.0", features = [ "v4", "fast-rng", "macro-diagnostics", ] }

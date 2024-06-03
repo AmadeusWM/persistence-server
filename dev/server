@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+cd "$(dirname "$0")/.."
+
+HOST="localhost"
+PORT="4440"
+ADDR="$HOST:$PORT"
+
+CERT="${CERT:-dev/localhost.crt}"
+KEY="${KEY:-dev/localhost.key}"
+
+
+export RUST_LOG=debug
+
+cargo run -- --tls-cert "$CERT" --tls-key "$KEY" --tls-disable-verify
